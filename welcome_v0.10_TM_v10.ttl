@@ -364,7 +364,8 @@
 :hasFirstName rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :hasPersonalInformation ;
               owl:inverseOf :isFirstNameOf ;
-              rdfs:domain :Person ;
+              rdfs:domain :FirstName ,
+                          :Person ;
               rdfs:range :FirstName .
 
 
@@ -387,7 +388,8 @@
 :hasLastName rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :hasPersonalInformation ;
              owl:inverseOf :isLastNameOf ;
-             rdfs:domain :Person ;
+             rdfs:domain :LastName ,
+                         :Person ;
              rdfs:range :LastName .
 
 
@@ -547,6 +549,11 @@
                  rdfs:subPropertyOf :isPersonalInformationOf .
 
 
+###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#isIDof
+:isIDof rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty .
+
+
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#isInvolvedInDialogueSession
 :isInvolvedInDialogueSession rdf:type owl:ObjectProperty ;
                              rdfs:domain :DialogueUser ;
@@ -574,6 +581,11 @@
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#isPovidedBy
 :isPovidedBy rdf:type owl:ObjectProperty .
+
+
+###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#isRegistered
+:isRegistered rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#isRelatedToUser
@@ -694,13 +706,11 @@
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#hasFirstName
-:hasFirstName rdf:type owl:DatatypeProperty ;
-              rdfs:domain :FirstName .
+:hasFirstName rdf:type owl:DatatypeProperty .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#hasLastName
-:hasLastName rdf:type owl:DatatypeProperty ;
-             rdfs:domain :LastName .
+:hasLastName rdf:type owl:DatatypeProperty .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#hasName
@@ -940,6 +950,11 @@
                     rdfs:subClassOf :Descriptors .
 
 
+###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#IDNumber
+:IDNumber rdf:type owl:Class ;
+          rdfs:subClassOf :PersonalInformation .
+
+
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#InformRegistrationService
 :InformRegistrationService rdf:type owl:Class ;
                            rdfs:subClassOf :DIP .
@@ -1019,6 +1034,10 @@
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#PlannerRequest
 :PlannerRequest rdf:type owl:Class ;
                 rdfs:subClassOf :Request .
+
+
+###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Registered
+:Registered rdf:type owl:Class .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#RegistrationOffice
@@ -1131,35 +1150,9 @@
 #    Individuals
 #################################################################
 
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Commit
-:Commit rdf:type owl:NamedIndividual ,
-                 :SpeechAct ;
-        rdfs:comment "this is the previous \"Request for service\" speech act" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Complaint
-:Complaint rdf:type owl:NamedIndividual ,
-                    :SpeechAct .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#ConversationalClosing
-:ConversationalClosing rdf:type owl:NamedIndividual ,
-                                :SpeechAct .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#ConversationalOpening
-:ConversationalOpening rdf:type owl:NamedIndividual ,
-                                :SpeechAct .
-
-
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Crta._de_Montcada
 :Crta._de_Montcada rdf:type owl:NamedIndividual ,
                             :SteetName .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#EN
-:EN rdf:type owl:NamedIndividual ,
-             :SystemLanguage .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Friday
@@ -1167,69 +1160,15 @@
                  :Day .
 
 
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hello
-:Hello rdf:type owl:NamedIndividual ,
-                :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hi
-:Hi rdf:type owl:NamedIndividual ,
-             :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#I_am_for_2_months_now_in_Terrassa
-:I_am_for_2_months_now_in_Terrassa rdf:type owl:NamedIndividual ,
-                                            :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#I_come_from_Syria
-:I_come_from_Syria rdf:type owl:NamedIndividual ,
-                            :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#I_would_like_to_apply_for_the_First_Reception_Service
-:I_would_like_to_apply_for_the_First_Reception_Service rdf:type owl:NamedIndividual ,
-                                                                :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Karim
-:Karim rdf:type owl:NamedIndividual ,
-                :FirstName ;
-       :isFirstNameOf :dialogue_user_1 ;
-       :hasFirstName "Karim"^^xsd:string .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#KarimY
-:KarimY rdf:type owl:NamedIndividual ,
-                 :Name ;
-        :isNameOf :dialogue_user_1 ;
-        :hasName "Karim Y"^^xsd:string .
-
-
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Monday
 :Monday rdf:type owl:NamedIndividual ,
                  :Day .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#NonOpinionStatement
-:NonOpinionStatement rdf:type owl:NamedIndividual ,
-                              :SpeechAct .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Passport_renewal
 :Passport_renewal rdf:type owl:NamedIndividual ,
                            <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
                   :isRegistered "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#RequestForInformation
-:RequestForInformation rdf:type owl:NamedIndividual ,
-                                :SpeechAct .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#ResponseAcknowledgement
-:ResponseAcknowledgement rdf:type owl:NamedIndividual ,
-                                  :SpeechAct .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Servei_de_primera_acollida_Terrassa
@@ -1247,15 +1186,9 @@
                    :hasAltAddress "Tsimiski 7"^^xsd:string .
 
 
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Suggestion
-:Suggestion rdf:type owl:NamedIndividual ,
-                     :SpeechAct .
-
-
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Syria
 :Syria rdf:type owl:NamedIndividual ,
-                :CountryOfOrigin ;
-       :isCountryOriginOf :dialogue_user_1 .
+                :CountryOfOrigin .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Terrassa
@@ -1266,29 +1199,6 @@
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Weekday
 :Weekday rdf:type owl:NamedIndividual ,
                   :Day .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Y
-:Y rdf:type owl:NamedIndividual ,
-            :LastName ;
-   :isLastNameOf :dialogue_user_1 ;
-   :hasLastName "Y"^^xsd:string .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#YesNoQuestion
-:YesNoQuestion rdf:type owl:NamedIndividual ,
-                        :SpeechAct .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#accomplished
-:accomplished rdf:type owl:NamedIndividual ,
-                       :DIPStatus .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#bye-bye
-:bye-bye rdf:type owl:NamedIndividual ,
-                  :ContainerTranscription ,
-                  :TurnTranscrption .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#carrer_de_san_sebastia
@@ -1320,266 +1230,9 @@
                      rdfs:label "Col·legi Sagrat Cor" .
 
 
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#communicated
-:communicated rdf:type owl:NamedIndividual ,
-                       :ComminicatedBySystem .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#confirmed
-:confirmed rdf:type owl:NamedIndividual ,
-                    :ComminicatedBySystem .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_session_1
-:dialogue_session_1 rdf:type owl:NamedIndividual ,
-                             :DialogueSession ;
-                    :hasDialogueTurn :dialogue_turn_1_1_0 ,
-                                     :dialogue_turn_1_1_1 ,
-                                     :dialogue_turn_1_1_2 ,
-                                     :dialogue_turn_1_1_3 ,
-                                     :dialogue_turn_1_1_4 ,
-                                     :dialogue_turn_1_2_1 ,
-                                     :dialogue_turn_1_2_2 ,
-                                     :dialogue_turn_1_2_3 ,
-                                     :dialogue_turn_1_2_4 ;
-                    :hasDialogueUser :dialogue_user_1 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_1_0
-:dialogue_turn_1_1_0 rdf:type owl:NamedIndividual ,
-                              :DialogueUserTurn ;
-                     :hasDIP :opening_1 ;
-                     :hasSpeechActContainer :speech_act_container_1_1_0_1 ,
-                                            :speech_act_container_1_1_0_2 ;
-                     :hasTurnTranscription <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hi,_Can_you_hear_me?> ;
-                     :hasTimestamp 1111110 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_1_1
-:dialogue_turn_1_1_1 rdf:type owl:NamedIndividual ,
-                              :DialogueUserTurn ;
-                     :hasSpeechActContainer :speech_act_container_1_1_1_1 ,
-                                            :speech_act_container_1_1_1_2 ;
-                     :hasSystemResponse :dialogue_turn_1_2_1 ;
-                     :hasTurnTranscription <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hello,_I_would_like_to_apply_for_the_First_Reception_Service> ;
-                     :hasTimestamp 1111111 ;
-                     rdfs:comment """Each DialogueUserTurn has an overall transciption which is composed by the individual trancriptions of its speech acts (NOT VALID)
-Transciption will come from ASR analysis along with a timestamp"""^^xsd:string ;
-                     rdfs:label "dialogue_turn_1_1_1" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_1_2
-:dialogue_turn_1_1_2 rdf:type owl:NamedIndividual ,
-                              :DialogueUserTurn ;
-                     :hasDIP :request_info_1_2 ;
-                     :hasSpeechActContainer :speech_act_container_1_1_2_1 ,
-                                            :speech_act_container_1_1_2_2 ,
-                                            :speech_act_container_1_1_2_3 ,
-                                            :speech_act_container_1_1_2_4 ;
-                     :hasSystemResponse :dialogue_turn_1_2_2 ;
-                     :hasTurnTranscription <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#My_name_is_Karim_Y.,_I_come_from_Syria_and_I_am_for_2_months_now_in_Terrassa._For_the_time_being_I_stay_with_friends.> ;
-                     :hasTimestamp 1111112 ;
-                     rdfs:comment "Each DialogueUserTurn has an overall transciption which is composed by the individual trancriptions of its speech acts" ;
-                     rdfs:label "dialogue_turn_1_1_2" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_1_3
-:dialogue_turn_1_1_3 rdf:type owl:NamedIndividual ,
-                              :DialogueUserTurn ;
-                     :hasDIP :inform_registration_service_1 ,
-                             :request_info_1_3 ;
-                     :hasInfoForDMS :catalan_language ,
-                                    :registration_office_terrassa ;
-                     :hasSpeechActContainer :speech_act_container_1_1_3_1 ;
-                     :hasSystemResponse :dialogue_turn_1_2_3 ;
-                     :hasTurnTranscription :it_is_Carrer_de_San_Sebastià_66 ;
-                     :hasTimestamp 1111113 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_1_4
-:dialogue_turn_1_1_4 rdf:type owl:NamedIndividual ,
-                              :DialogueUserTurn ;
-                     :hasDIP :empty ;
-                     :hasSpeechActContainer :speech_act_container_1_1_4_1 ;
-                     :hasSystemResponse :dialogue_turn_1_2_4 ;
-                     :hasTurnTranscription :bye-bye ;
-                     :hasTimestamp 1111114 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_2_1
-:dialogue_turn_1_2_1 rdf:type owl:NamedIndividual ,
-                              :DialogueSystemTurn ;
-                     :hasSpeechActContainer :speech_act_container_1_2_1_1 ,
-                                            :speech_act_container_1_2_1_2 ;
-                     :repliesToUserResponse :dialogue_turn_1_1_1 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_2_2
-:dialogue_turn_1_2_2 rdf:type owl:NamedIndividual ,
-                              :DialogueSystemTurn ;
-                     :repliesToUserResponse :dialogue_turn_1_1_2 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_2_3
-:dialogue_turn_1_2_3 rdf:type owl:NamedIndividual ,
-                              :DialogueSystemTurn ;
-                     :repliesToUserResponse :dialogue_turn_1_1_3 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_turn_1_2_4
-:dialogue_turn_1_2_4 rdf:type owl:NamedIndividual ,
-                              :DialogueSystemTurn ;
-                     :repliesToUserResponse :dialogue_turn_1_1_4 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#dialogue_user_1
-:dialogue_user_1 rdf:type owl:NamedIndividual ,
-                          :DialogueUser ;
-                 :hasPhysicalAddress :physical_address_1 ;
-                 :isInvolvedInDialogueSession :dialogue_session_1 ;
-                 :hasUserId 1 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#empty
-:empty rdf:type owl:NamedIndividual ,
-                :FilledInByUser .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1.1
-:entity_1.1 rdf:type owl:NamedIndividual ,
-                     :DetectedEntity ;
-            :hasEntityId "entity_1" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1121_1.1
-:entity_1121_1.1 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "null" ;
-                 :hasEntityConfidence 1.0 ;
-                 :hasEntityId "entity_1121_1.1" ;
-                 :hasEntityLink "null" ;
-                 :hasEntityType "TCN" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1121_1.2
-:entity_1121_1.2 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "name" ;
-                 :hasEntityConfidence 1.0 ;
-                 :hasEntityId "entity_1121_1.2" ;
-                 :hasEntityLink "bn:00056758n" ;
-                 :hasEntityType "Predicate" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1121_1.3
-:entity_1121_1.3 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "Karim Y" ;
-                 :hasEntityConfidence 0.2 ;
-                 :hasEntityId "entity_1121_1.3" ;
-                 :hasEntityLink "null" ;
-                 :hasEntityType "Person" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1122_2.1
-:entity_1122_2.1 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "come"^^xsd:string ;
-                 :hasEntityConfidence "0.8"^^xsd:string ;
-                 :hasEntityId "entity_1121_2.1" ;
-                 :hasEntityLink "bn:00082788v" ;
-                 :hasEntityType "Predicate" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1122_2.2
-:entity_1122_2.2 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "Syria" ;
-                 :hasEntityConfidence 0.9 ;
-                 :hasEntityId "entity_1121_2.2" ;
-                 :hasEntityLink "bn:00075752n" ;
-                 :hasEntityType "Location" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1123_3.1
-:entity_1123_3.1 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "am" ;
-                 :hasEntityConfidence 0.7 ;
-                 :hasEntityId "entity_1121_3.1" ;
-                 :hasEntityLink "bn:00083183v" ;
-                 :hasEntityType "Predicate" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1123_3.2
-:entity_1123_3.2 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "for two months now" ;
-                 :hasEntityConfidence 0.6 ;
-                 :hasEntityId "entity_1121_3.2" ;
-                 :hasEntityLink "null" ;
-                 :hasEntityType "Time" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1123_3.3
-:entity_1123_3.3 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "Terrassa" ;
-                 :hasEntityConfidence 1.0 ;
-                 :hasEntityId "entity_1121_3.3" ;
-                 :hasEntityLink "bn:03554826n" ;
-                 :hasEntityType "Location" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1124_4.1
-:entity_1124_4.1 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "stay" ;
-                 :hasEntityConfidence 0.7 ;
-                 :hasEntityId "entity_1121_4.1" ;
-                 :hasEntityLink "bn:00082137v" ;
-                 :hasEntityType "Predicate" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1124_4.2
-:entity_1124_4.2 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "for the time being" ;
-                 :hasEntityConfidence 0.6 ;
-                 :hasEntityId "entity_1121_4.2" ;
-                 :hasEntityLink "null" ;
-                 :hasEntityType "Time" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_1124_4.3
-:entity_1124_4.3 rdf:type owl:NamedIndividual ,
-                          :DetectedEntity ;
-                 :hasEntityAnchor "friends" ;
-                 :hasEntityConfidence 0.3 ;
-                 :hasEntityId "entity_1121_4.3" ;
-                 :hasEntityLink "bn:00036538n" ;
-                 :hasEntityType "Location" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_2.1
-:entity_2.1 rdf:type owl:NamedIndividual ,
-                     :DetectedEntity .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_2.2
-:entity_2.2 rdf:type owl:NamedIndividual ,
-                     :DetectedEntity .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#entity_2.3
-:entity_2.3 rdf:type owl:NamedIndividual ,
-                     :DetectedEntity .
-
-
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#first_reception_process
 :first_reception_process rdf:type owl:NamedIndividual ,
-                                  <http://www.daml.org/services/owl-s/1.2/Process.owl#Process> ;
-                         <http://www.daml.org/services/owl-s/1.2/Service.owl#describes> :first_reception_service .
+                                  <http://www.daml.org/services/owl-s/1.2/Process.owl#Process> .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#first_reception_result
@@ -1587,142 +1240,9 @@ Transciption will come from ASR analysis along with a timestamp"""^^xsd:string ;
                                  <http://www.daml.org/services/owl-s/1.2/Process.owl#Result> .
 
 
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#first_reception_service
-:first_reception_service rdf:type owl:NamedIndividual ,
-                                  <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ,
-                                  :ServiceRequest ;
-                         <http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> :first_reception_service_process ;
-                         <http://www.daml.org/services/owl-s/1.2/Service.owl#presents> :first_reception_service_profile .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#first_reception_service_process
-:first_reception_service_process rdf:type owl:NamedIndividual ,
-                                          <http://www.daml.org/services/owl-s/1.2/Process.owl#AtomicProcess> ;
-                                 <http://www.daml.org/services/owl-s/1.2/Service.owl#describes> :first_reception_service .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#first_reception_service_profile
-:first_reception_service_profile rdf:type owl:NamedIndividual ,
-                                          <http://www.daml.org/services/owl-s/1.2/Profile.owl#Profile> ;
-                                 <http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> :first_reception_service ;
-                                 <http://www.daml.org/services/owl-s/1.2/Profile.owl#serviceName> "CatalanFirstReception" ;
-                                 <http://www.daml.org/services/owl-s/1.2/Profile.owl#textDescription> "This is the profile of the 1RS in Catalonia. The TCN must be registered first" .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#for_the_time_being_I_stay_with_friends
-:for_the_time_being_I_stay_with_friends rdf:type owl:NamedIndividual ,
-                                                 :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#friends
-:friends rdf:type owl:NamedIndividual ,
-                  :HostingInformation ;
-         :isHostingInfoOf :dialogue_user_1 .
-
-
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#hosting_center
 :hosting_center rdf:type owl:NamedIndividual ,
                          :HostingInformation .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#inform_registration_service_1
-:inform_registration_service_1 rdf:type owl:NamedIndividual ,
-                                        :InformRegistrationService ;
-                               :hasDIPInformOfficeHours :not_communicated ;
-                               :hasDIPStatus :not_accomplished_yet ;
-                               :hasDIPinformOfficeAddress :not_communicated .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#it_is_Carrer_de_San_Sebastià_66
-:it_is_Carrer_de_San_Sebastià_66 rdf:type owl:NamedIndividual ,
-                                          :ContainerTranscription ,
-                                          :TurnTranscrption .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#my_name_is_Karim_Y
-:my_name_is_Karim_Y rdf:type owl:NamedIndividual ,
-                             :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#not_accomplished_yet
-:not_accomplished_yet rdf:type owl:NamedIndividual ,
-                               :DIPStatus .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#not_communicated
-:not_communicated rdf:type owl:NamedIndividual ,
-                           :ComminicatedBySystem .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#opening_1
-:opening_1 rdf:type owl:NamedIndividual ,
-                    :Opening ;
-           :hasDIPConfirmLanguage :EN ;
-           :hasDIPLanguageScore 22 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1121_1
-:participant_1121_1 rdf:type owl:NamedIndividual ,
-                             :Participant ;
-                    :hasDetectedEntity :entity_1121_1.1 ;
-                    :hasDetectedRole :role_Agent .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1121_2
-:participant_1121_2 rdf:type owl:NamedIndividual ,
-                             :Participant ;
-                    :hasDetectedEntity :entity_1121_1.3 ;
-                    :hasDetectedRole :role_Object .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1122_1
-:participant_1122_1 rdf:type owl:NamedIndividual ,
-                             :Participant ;
-                    :hasDetectedEntity :entity_1121_1.1 ;
-                    :hasDetectedRole :role_Agent .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1122_2
-:participant_1122_2 rdf:type owl:NamedIndividual ,
-                             :Participant ;
-                    :hasDetectedEntity :entity_1122_2.2 ;
-                    :hasDetectedRole :role_Location .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1123_1
-:participant_1123_1 rdf:type owl:NamedIndividual ;
-                    :hasDetectedEntity :entity_1121_1.1 ;
-                    :hasDetectedRole :role_Agent .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1123_2
-:participant_1123_2 rdf:type owl:NamedIndividual ;
-                    :hasDetectedEntity :entity_1123_3.2 ;
-                    :hasDetectedRole :role_Time .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1123_3
-:participant_1123_3 rdf:type owl:NamedIndividual ;
-                    :hasDetectedEntity :entity_1123_3.3 ;
-                    :hasDetectedRole :role_Place .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1124_1
-:participant_1124_1 rdf:type owl:NamedIndividual ;
-                    :hasDetectedEntity :entity_1121_1.1 ;
-                    :hasDetectedRole :role_Agent .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1124_2
-:participant_1124_2 rdf:type owl:NamedIndividual ;
-                    :hasDetectedEntity :entity_1124_4.1 ;
-                    :hasDetectedRole :role_Time .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#participant_1124_3
-:participant_1124_3 rdf:type owl:NamedIndividual ;
-                    :hasDetectedEntity :entity_1124_4.3 ;
-                    :hasDetectedRole :role_Place .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#physical_address_1
@@ -1732,7 +1252,6 @@ Transciption will come from ASR analysis along with a timestamp"""^^xsd:string ;
                     :hasCountry :Spain ;
                     :hasStreetName :carrer_de_san_sebastia ;
                     :hasStreetNumber <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#66> ;
-                    :isPhysicalAddressOf :dialogue_user_1 ;
                     rdfs:comment "" .
 
 
@@ -1781,282 +1300,11 @@ Transciption will come from ASR analysis along with a timestamp"""^^xsd:string ;
                               :hasPhysicalAddress :physical_address_2 .
 
 
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#relation_1
-:relation_1 rdf:type owl:NamedIndividual ,
-                     :DetectedRelation .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#relation_1121
-:relation_1121 rdf:type owl:NamedIndividual ,
-                        :DetectedRelation ;
-               <http://www.daml.org/services/owl-s/1.2/Process.owl#hasParticipant> :participant_1121_2 ;
-               :hasParticipant :participant_1121_1 ;
-               :hasPredicateRelation :entity_1121_1.2 ;
-               :hasRelationId 1121 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#relation_1122
-:relation_1122 rdf:type owl:NamedIndividual ,
-                        :DetectedRelation ;
-               <http://www.daml.org/services/owl-s/1.2/Process.owl#hasParticipant> :participant_1122_2 ;
-               :hasParticipant :participant_1122_1 ;
-               :hasPredicateRelation :entity_1122_2.1 ;
-               :hasRelationId 1122 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#relation_1123
-:relation_1123 rdf:type owl:NamedIndividual ,
-                        :DetectedRelation ;
-               <http://www.daml.org/services/owl-s/1.2/Process.owl#hasParticipant> :participant_1123_2 ;
-               :hasParticipant :participant_1123_1 ,
-                               :participant_1123_3 ;
-               :hasPredicateRelation :entity_1123_3.1 ;
-               :hasRelationId 1123 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#relation_1124
-:relation_1124 rdf:type owl:NamedIndividual ,
-                        :DetectedRelation ;
-               :hasRelationId 1124 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#relatives
-:relatives rdf:type owl:NamedIndividual ,
-                    :HostingInformation .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#request_info_1
-:request_info_1 rdf:type owl:NamedIndividual ,
-                         :RequestPersonalInfo ;
-                :hasDIPInstantiation :request_info_1_1 ,
-                                     :request_info_1_2 ,
-                                     :request_info_1_3 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#request_info_1_1
-:request_info_1_1 rdf:type owl:NamedIndividual ,
-                           :RequestPersonalInfo ;
-                  :hasDIPCountryOfOrigin :empty ;
-                  :hasDIPObtainName :empty ;
-                  :hasDIPObtainResidenceAddressCity :empty ;
-                  :hasDIPObtainResidenceAddressNumber :empty ;
-                  :hasDIPObtainResidenceAddressStreet :empty ;
-                  :hasDIPStatus :not_accomplished_yet ;
-                  :hasDIPTimeArrivalCurrentResidence :empty .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#request_info_1_2
-:request_info_1_2 rdf:type owl:NamedIndividual ,
-                           :RequestPersonalInfo ;
-                  :hasDIPCountryOfOrigin :Syria ;
-                  :hasDIPObtainName :KarimY ;
-                  :hasDIPObtainResidenceAddressCity :Terrassa ;
-                  :hasDIPObtainResidenceAddressNumber :empty ;
-                  :hasDIPObtainResidenceAddressStreet :empty ;
-                  :hasDIPStatus :not_accomplished_yet ;
-                  :hasDIPTimeArrivalCurrentResidence :staying_period_1 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#request_info_1_3
-:request_info_1_3 rdf:type owl:NamedIndividual ,
-                           :RequestPersonalInfo ;
-                  :hasDIPCountryOfOrigin :Syria ;
-                  :hasDIPObtainName :KarimY ;
-                  :hasDIPObtainResidenceAddressCity :Terrassa ;
-                  :hasDIPObtainResidenceAddressNumber <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#66> ;
-                  :hasDIPObtainResidenceAddressStreet :carrer_de_san_sebastia ;
-                  :hasDIPStatus :accomplished ;
-                  :hasDIPTimeArrivalCurrentResidence :staying_period_1 .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#request_more_info
-:request_more_info rdf:type owl:NamedIndividual ,
-                            :ComminicatedBySystem .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#role_Agent
-:role_Agent rdf:type owl:NamedIndividual ,
-                     :Role .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#role_Location
-:role_Location rdf:type owl:NamedIndividual ,
-                        :Role .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#role_Object
-:role_Object rdf:type owl:NamedIndividual ,
-                      :Role .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#role_Place
-:role_Place rdf:type owl:NamedIndividual ,
-                     :Role .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#role_Time
-:role_Time rdf:type owl:NamedIndividual ,
-                    :Role .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_0_1
-:speech_act_container_1_1_0_1 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :Hi ;
-                              :hasNextContainer :speech_act_container_1_1_0_2 ;
-                              :hasSpeechActType :ConversationalOpening ;
-                              :hasContainerId 1101 ;
-                              :isLastContainer "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_0_2
-:speech_act_container_1_1_0_2 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Can_you_hear_me?> ;
-                              :hasDetectedEntity :entity_1.1 ;
-                              :hasDetectedRelation :relation_1 ;
-                              :hasSpeechActType :YesNoQuestion ;
-                              :hasContainerId 1102 ;
-                              :isLastContainer "true"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_1_1
-:speech_act_container_1_1_1_1 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :Hello ;
-                              :hasNextContainer :speech_act_container_1_1_1_2 ;
-                              :hasSpeechActType :ConversationalOpening ;
-                              :hasContainerId 1111 ;
-                              :isLastContainer "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_1_2
-:speech_act_container_1_1_1_2 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :I_would_like_to_apply_for_the_First_Reception_Service ;
-                              :hasDIP :request_info_1_1 ;
-                              :hasSpeechActAgent :dialogue_user_1 ;
-                              :hasSpeechActObject :first_reception_service ;
-                              :hasSpeechActType :Commit ;
-                              :hasContainerId 1112 ;
-                              :isLastContainer "true"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_2_1
-:speech_act_container_1_1_2_1 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :my_name_is_Karim_Y ;
-                              :hasDetectedEntity :entity_1121_1.1 ,
-                                                 :entity_1121_1.2 ,
-                                                 :entity_1121_1.3 ;
-                              :hasDetectedRelation :relation_1121 ;
-                              :hasNextContainer :speech_act_container_1_1_2_2 ;
-                              :hasSpeechActObject :KarimY ;
-                              :hasSpeechActType :NonOpinionStatement ;
-                              :hasContainerId 1121 ;
-                              :isLastContainer "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_2_2
-:speech_act_container_1_1_2_2 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :I_come_from_Syria ;
-                              :hasDetectedEntity :entity_1122_2.1 ,
-                                                 :entity_1122_2.2 ;
-                              :hasDetectedRelation :relation_1122 ;
-                              :hasNextContainer :speech_act_container_1_1_2_3 ;
-                              :hasSpeechActObject :Syria ;
-                              :hasSpeechActType :NonOpinionStatement ;
-                              :hasContainerId 1122 ;
-                              :isLastContainer "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_2_3
-:speech_act_container_1_1_2_3 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :I_am_for_2_months_now_in_Terrassa ;
-                              :hasDetectedEntity :entity_1123_3.1 ,
-                                                 :entity_1123_3.2 ,
-                                                 :entity_1123_3.3 ;
-                              :hasDetectedRelation :relation_1123 ;
-                              :hasSpeechActContainer :speech_act_container_1_1_2_4 ;
-                              :hasSpeechActObject :physical_address_1 ,
-                                                  :staying_period_1 ;
-                              :hasSpeechActType :NonOpinionStatement ;
-                              :hasContainerId 1123 ;
-                              :isLastContainer "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_2_4
-:speech_act_container_1_1_2_4 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :for_the_time_being_I_stay_with_friends ;
-                              :hasDetectedEntity :entity_1124_4.1 ,
-                                                 :entity_1124_4.2 ,
-                                                 :entity_1124_4.3 ;
-                              :hasDetectedRelation :relation_1124 ;
-                              :hasSpeechActObject :friends ;
-                              :hasSpeechActType :NonOpinionStatement ;
-                              :hasContainerId 1124 ;
-                              :isLastContainer "true"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_3_1
-:speech_act_container_1_1_3_1 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :it_is_Carrer_de_San_Sebastià_66 ;
-                              :hasSpeechActObject :physical_address_1 ;
-                              :hasSpeechActType :NonOpinionStatement ;
-                              :hasContainerId 1131 ;
-                              :isLastContainer "true"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_1_4_1
-:speech_act_container_1_1_4_1 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :bye-bye ;
-                              :hasSpeechActType :ConversationalClosing ;
-                              :hasContainerId 1141 ;
-                              :isLastContainer "true"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_2_1_1
-:speech_act_container_1_2_1_1 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> :Hello ;
-                              :hasNextContainer :speech_act_container_1_2_1_2 ;
-                              :hasSpeechActType :ConversationalOpening ;
-                              :hasContainerId 1211 ;
-                              :isLastContainer "false"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#speech_act_container_1_2_1_2
-:speech_act_container_1_2_1_2 rdf:type owl:NamedIndividual ,
-                                       :SpeechActContainer ;
-                              <http://webprotege.stanford.edu/hasContainerTranscription> <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#In_this_case,_I_first_need_some_personal_data_from_you._Please_tell_me_your_name,_age,_country_of_origin,_since_when_you_are_here_in_Catalonia,_and_your_official_residence_address.> ;
-                              :hasSpeechActType :RequestForInformation ;
-                              :hasContainerId 1212 ;
-                              :isLastContainer "true"^^xsd:boolean .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#staying_period_1
-:staying_period_1 rdf:type owl:NamedIndividual ,
-                           :StayingPeriod ;
-                  :isStayingPeriodOf :dialogue_user_1 ;
-                  :fromPeriod 20200319 ;
-                  :toPeriod 20200519 .
-
-
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#training_office_1
 :training_office_1 rdf:type owl:NamedIndividual ,
                             :TrainingOffice ;
                    :hasName :col_legi_sagrat_cor ;
                    :offersCourse :catalan_language .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#unknown
-:unknown rdf:type owl:NamedIndividual ,
-                  :FilledInByUser .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#08223
@@ -2117,31 +1365,6 @@ Transciption will come from ASR analysis along with a timestamp"""^^xsd:string ;
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#937_315_982
 <https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#937_315_982> rdf:type owl:NamedIndividual ,
                                                           :Telephone_number .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Can_you_hear_me?
-<https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Can_you_hear_me?> rdf:type owl:NamedIndividual ,
-                                                               :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hello,_I_would_like_to_apply_for_the_First_Reception_Service
-<https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hello,_I_would_like_to_apply_for_the_First_Reception_Service> rdf:type owl:NamedIndividual ,
-                                                                                                           :TurnTranscrption .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hi,_Can_you_hear_me?
-<https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Hi,_Can_you_hear_me?> rdf:type owl:NamedIndividual ,
-                                                                   :TurnTranscrption .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#In_this_case,_I_first_need_some_personal_data_from_you._Please_tell_me_your_name,_age,_country_of_origin,_since_when_you_are_here_in_Catalonia,_and_your_official_residence_address.
-<https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#In_this_case,_I_first_need_some_personal_data_from_you._Please_tell_me_your_name,_age,_country_of_origin,_since_when_you_are_here_in_Catalonia,_and_your_official_residence_address.> rdf:type owl:NamedIndividual ,
-                                                                                                                                                                                                                                   :ContainerTranscription .
-
-
-###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#My_name_is_Karim_Y.,_I_come_from_Syria_and_I_am_for_2_months_now_in_Terrassa._For_the_time_being_I_stay_with_friends.
-<https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#My_name_is_Karim_Y.,_I_come_from_Syria_and_I_am_for_2_months_now_in_Terrassa._For_the_time_being_I_stay_with_friends.> rdf:type owl:NamedIndividual ,
-                                                                                                                                                                    :TurnTranscrption .
 
 
 ###  https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/welcome_v0.10_TM_v10#Oficina_d’Atenció_Ciutadana_–_OAC
